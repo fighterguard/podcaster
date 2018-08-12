@@ -35,7 +35,7 @@ export const GetPodcastList = () => {
       })
       .catch(() => {
         reject("Error obtaining podcast list")
-      });
+      })
     })
   }else{
     return new Promise((resolve, reject) => {

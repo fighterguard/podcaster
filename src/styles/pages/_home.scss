@@ -10,7 +10,7 @@
     width: 870px;
 
     &-container {
-      height: calc(100% - #{$searchbar-height});
+      height: calc(100% - #{$searchbox-height});
       overflow-y: auto;
     }
   }

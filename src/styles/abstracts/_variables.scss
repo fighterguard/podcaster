@@ -38,6 +38,14 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
+/// Black
+/// @type Color
+$black: rgb(0, 0, 0) !default;
+
+/// White
+/// @type Color
+$white: rgb(255, 255, 255) !default;
+
 
 
 
@@ -71,4 +79,4 @@ $breakpoints: (
 $base-url: '/assets/' !default;
 
 $header-height: 40px;
-$searchbar-height: 30px;
+$searchbox-height: 60px;
