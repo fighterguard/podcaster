@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
+import { Header, Home, Podcast, PodcastDetails } from './components';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Podcaster</h1>
-        </header>
-      </div>
+      <Router history={browserHistory}>
+        <div className="App">
+          <Header/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/podcast/:podcastId" component={Podcast}/>
+            <Route path="/podcast/:podcastId/episode/:episodeId" component={PodcastDetails}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
 
-export default App;
+export default App

@@ -9,20 +9,14 @@ if (typeof app.get('env') !== 'undefined' && app.get('env') !== 'development') {
 
 const distPath = path.join(__dirname, distFolder);
 
-console.log(distFolder); //eslint-disable-line
+console.log(distFolder);
 
 app.use(express.static(distPath));
-
-app.get('/health', (req, res) => {
-  res.json({
-    data: 'Podcaster Running'
-  });
-});
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
 app.listen(3001, () => {
-  console.log('Server running...'); //eslint-disable-line
+  console.log('Server running...');
 });

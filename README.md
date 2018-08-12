@@ -1,13 +1,13 @@
-# podcaster
+# PodCaster
 Tech test app for Zara
 
 To run this app, clone the repository first
 
 ```
-https://github.com/fighterguard/podcaster.git
+git clone https://github.com/fighterguard/podcaster.git
 ```
 
-Then install the app dependencies by running this command in the folder where you cloned the repository
+Then install the app dependencies by running this command in the folder where the repository was cloned
 
 ```
 npm install
