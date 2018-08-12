@@ -7,6 +7,7 @@
  */
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 /**
@@ -29,7 +30,22 @@ a {
   text-decoration: none;
 
   @include on-event {
-    color: $text-color;
-    text-decoration: underline;
+    color: $brand-color;
+    text-decoration: none;
   }
+}
+
+.app {
+  width: 900px;
+  margin: auto;
+  height: 100%;
+
+  &__content {
+    height: calc(100% - #{$header-height});
+  }
+}
+
+.podcaster__horizontal-bar {
+  width: 100%;
+  border-bottom: 1px solid $light-grey;
 }

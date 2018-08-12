@@ -5,9 +5,10 @@ export default class Header extends React.Component{
   render(){
     return (
       <div className="podcaster__header">
-        <h3 className="podcaster__header__title">
+        <div className="podcaster__header__title">
           <Link to='/'>Podcaster</Link>
-        </h3>
+        </div>
+        <div className="podcaster__horizontal-bar"/>
       </div>
     )
   }

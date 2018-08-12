@@ -1,3 +1,17 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+.podcaster__home {
+  height: 100%;
+
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 870px;
+
+    &-container {
+      height: calc(100% - #{$searchbar-height});
+      overflow-y: auto;
+    }
+  }
+}

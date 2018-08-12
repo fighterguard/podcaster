@@ -1,0 +1,36 @@
+.podcast-box {
+  width: 197px;
+  height: 220px;
+  padding-top: 60px;
+  margin: 0 10px 40px 10px;
+  position: relative;
+
+  &__image {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    border-radius: 50px;
+    border: 1px solid $light-grey;
+  }
+
+  &__text {
+    border-radius: 4px;
+    box-shadow: 0 3px 6px 3px $light-grey;
+    height: 162px;
+    padding-top: 65px;
+  }
+
+  &__name {
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__author {
+    font-size: 13px;
+    text-align: center;
+  }
+}
