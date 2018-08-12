@@ -8,6 +8,8 @@ export default class Header extends React.Component{
         <div className="podcaster__header__title">
           <Link to='/'>Podcaster</Link>
         </div>
+        {this.props.isLoading &&
+          (<div className="podcaster__header__loading-box"/>)}
         <div className="podcaster__horizontal-bar"/>
       </div>
     )

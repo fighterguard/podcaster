@@ -8,8 +8,11 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      podcastList: []
+      podcastList: [],
+      isLoading: true
     }
+
+    this.setLoading = this.setLoading.bind(this)
   }
 
   componentDidMount(){
@@ -17,17 +20,26 @@ class App extends Component {
     GetPodcastList()
     .then(response => {
       self.setState({
-        podcastList: response
+        podcastList: response,
+        isLoading: false
       })
     })
   }
 
+  setLoading(value){
+    this.setState({
+      isLoading: value
+    })
+  }
+
   render() {
-    const { podcastList } = this.state
+    const { podcastList, isLoading } = this.state
     return (
       <Router history={browserHistory}>
         <div className="app">
-          <Header/>
+          <Header
+            isLoading={isLoading}
+          />
           <div className="app__content">
             <Switch>
               <Route exact path="/">
@@ -35,7 +47,11 @@ class App extends Component {
                   podcastList={podcastList}
                 />
               </Route>
-              <Route exact path="/podcast/:podcastId" component={Podcast}/>
+              <Route exact path="/podcast/:podcastId">
+                <Podcast
+                  setLoading={this.setLoading}
+                />
+              </Route>
               <Route path="/podcast/:podcastId/episode/:episodeId" component={PodcastDetails}/>
             </Switch>
           </div>

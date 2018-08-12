@@ -1,14 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
+import { GetPodcastDetails } from '../helpers/PodcastInfo.helper'
 
-export default class Podcast extends React.Component{
+class Podcast extends React.Component{
+  constructor(props){
+    super(props)
+
+    this.state = {
+      podcastData: {}
+    }
+  }
+
+  componentDidMount(){
+    const self = this
+    self.props.setLoading(true)
+    GetPodcastDetails(self.props.match.params.podcastId)
+    .then(response => {
+      self.setState({
+        podcastData: response
+      })
+      self.props.setLoading(false)
+    })
+  }
+
   render(){
     const { podcastId } = this.props.match.params;
     return (
       <div>
         <h3>Podcast {podcastId}</h3>
-        <Link to='/podcast/123/episode/456'>Episode 456</Link>
       </div>
     )
   }
 }
+
+export default withRouter(Podcast)

@@ -1,18 +1,34 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 
-export default class Home extends React.Component{
+class PodcastBox extends React.Component{
+  constructor(props){
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(podcastId){
+    this.props.history.push(`/podcast/${podcastId}`)
+  }
+
   render(){
-    const { podcast, match, location, history } = this.props
+    const { podcast } = this.props
     let name = podcast['im:name'].label
     let author = podcast['im:artist'].label
     let image = podcast['im:image'][2].label
+    let id = podcast.id.attributes['im:id']
+    const maxLength = 47
 
-    if(name.length > 47){
-      name = `${name.substring(0, 44).trim()}...`
+    if(name.length > maxLength){
+      name = `${name.substring(0, (maxLength - 3)).trim()}...`
     }
     return (
-      <div className="podcast-box" title={podcast['im:name'].label}>
+      <div
+        className="podcast-box"
+        title={podcast['im:name'].label}
+        onClick={() => this.handleClick(id)}
+      >
         <img className="podcast-box__image" src={image}/>
         <div className="podcast-box__text">
           <div className="podcast-box__name">{name}</div>
@@ -22,3 +38,5 @@ export default class Home extends React.Component{
     )
   }
 }
+
+export default withRouter(PodcastBox)

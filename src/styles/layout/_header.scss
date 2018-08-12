@@ -4,10 +4,39 @@
 .podcaster__header {
   width: 100%;
   height: $header-height;
+  position: relative;
 
   &__title {
     font-size: 17px;
     font-weight: bold;
     margin-bottom: 5px;
+  }
+
+  &__loading-box {
+    position: absolute;
+    background-color: $brand-color;
+    right: 0;
+    top: 6px;
+    width: 15px;
+    height: 15px;
+    animation: loading 1s infinite linear;
+  }
+}
+
+@keyframes loading {
+  0% {
+    border-radius: 0;
+    background-color: $brand-color;
+    transform: rotate(0deg);
+  }
+  50% {
+    border-radius: 8px;
+    background-color: $purple;
+    transform: rotate(90deg);
+  }
+  100% {
+    border-radius: 0;
+    background-color: $brand-color;
+    transform: rotate(180deg);
   }
 }

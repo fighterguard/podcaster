@@ -10,6 +10,7 @@ git clone https://github.com/fighterguard/podcaster.git
 Then install the app dependencies by running this command in the folder where the repository was cloned
 
 ```
+cd podcaster
 npm install
 ```
 
