@@ -1,0 +1,59 @@
+.podcast-list {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 5px 20px 0 5px;
+
+  &__title-box {
+    @extend %box-shadow;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__list-box {
+    @extend %box-shadow;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  &__header-row {
+    display: flex;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid $light-grey;
+  }
+
+  &__item-row {
+    display: flex;
+    height: 35px;
+    padding-top: 5px;
+    border-bottom: 1px solid $light-grey;
+
+    & > .podcast-list__first-cell {
+      color: $brand-color;
+    }
+
+    &:nth-child(even) {
+      background-color: $light-blue;
+    }
+  }
+
+  &__first-cell {
+    width: 70%;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  &__second-cell {
+    width: 15%;
+  }
+
+  &__third-cell {
+    width: 13%;
+    text-align: right;
+  }
+}

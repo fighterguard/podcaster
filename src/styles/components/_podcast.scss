@@ -1,6 +1,16 @@
 .podcast {
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+  }
+
   &__left-panel {
     width: 300px;
+    height: 100%;
+  }
+  &__right-panel {
+    width: 700px;
     height: 100%;
   }
 

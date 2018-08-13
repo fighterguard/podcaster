@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router';
 import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
-import { Header, Home, Podcast, PodcastDetails } from './components'
+import { Header, Home, Podcast } from './components'
 import { GetPodcastList } from './helpers/PodcastInfo.helper'
 
 class App extends Component {
@@ -47,12 +47,11 @@ class App extends Component {
                   podcastList={podcastList}
                 />
               </Route>
-              <Route exact path="/podcast/:podcastId">
+              <Route path="/podcast/:podcastId">
                 <Podcast
                   setLoading={this.setLoading}
                 />
               </Route>
-              <Route path="/podcast/:podcastId/episode/:episodeId" component={PodcastDetails}/>
             </Switch>
           </div>
         </div>

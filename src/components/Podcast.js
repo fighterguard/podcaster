@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withRouter } from 'react-router'
+import { Route,  Switch } from 'react-router-dom'
 import { GetPodcastDetails } from '../helpers/PodcastInfo.helper'
+import { PodcastList, PodcastInfoBox, PodcastDetails } from './'
 
 class Podcast extends React.Component{
   constructor(props){
@@ -26,29 +28,26 @@ class Podcast extends React.Component{
   render(){
     const { podcastData } = this.state;
     return (
-      <div className="podcast__left-panel">
-        {podcastData &&
-        (<div className="podcast__info-box">
-          <img
-            src={podcastData.attributes.artworkUrl600}
-            className="podcast__image"
+      <div className="podcast__container">
+      {podcastData &&
+        <Fragment>
+        <div className="podcast__left-panel">
+          <PodcastInfoBox
+            podcastData={podcastData}
           />
-          <div className="podcaster__horizontal-bar"/>
-          <div className="podcast__title">
-            {podcastData.attributes.collectionName}
-          </div>
-          <div className="podcast__author">
-            {`by ${podcastData.attributes.artistName}`}
-          </div>
-          <div className="podcaster__horizontal-bar"/>
-          <div className="podcast__title">
-            Description:
-          </div>
-          <div
-            className="podcast__author"
-            dangerouslySetInnerHTML={{__html: podcastData.feed.description}}
-          />
-        </div>)}
+        </div>
+        <div className="podcast__right-panel">
+            <Switch>
+              <Route exact path="/podcast/:podcastId">
+                <PodcastList
+                  list={podcastData.feed.items}
+                />
+              </Route>
+              <Route path="/podcast/:podcastId/episode/:episodeId" component={PodcastDetails}/>
+            </Switch>
+        </div>
+        </Fragment>
+      }
       </div>
     )
   }

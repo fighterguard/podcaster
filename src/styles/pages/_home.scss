@@ -7,7 +7,7 @@
   &__list {
     display: flex;
     flex-flow: row wrap;
-    width: 870px;
+    width: 970px;
 
     &-container {
       height: calc(100% - #{$searchbox-height});
