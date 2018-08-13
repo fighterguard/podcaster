@@ -7,7 +7,7 @@ class Podcast extends React.Component{
     super(props)
 
     this.state = {
-      podcastData: {}
+      podcastData: null
     }
   }
 
@@ -24,10 +24,31 @@ class Podcast extends React.Component{
   }
 
   render(){
-    const { podcastId } = this.props.match.params;
+    const { podcastData } = this.state;
     return (
-      <div>
-        <h3>Podcast {podcastId}</h3>
+      <div className="podcast__left-panel">
+        {podcastData &&
+        (<div className="podcast__info-box">
+          <img
+            src={podcastData.attributes.artworkUrl600}
+            className="podcast__image"
+          />
+          <div className="podcaster__horizontal-bar"/>
+          <div className="podcast__title">
+            {podcastData.attributes.collectionName}
+          </div>
+          <div className="podcast__author">
+            {`by ${podcastData.attributes.artistName}`}
+          </div>
+          <div className="podcaster__horizontal-bar"/>
+          <div className="podcast__title">
+            Description:
+          </div>
+          <div
+            className="podcast__author"
+            dangerouslySetInnerHTML={{__html: podcastData.feed.description}}
+          />
+        </div>)}
       </div>
     )
   }

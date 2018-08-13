@@ -18,8 +18,7 @@
   }
 
   &__text {
-    border-radius: 4px;
-    box-shadow: 0 3px 6px 3px $light-grey;
+    @extend %box-shadow;
     height: 162px;
     padding: 65px 3px 3px 3px;
   }

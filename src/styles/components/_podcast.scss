@@ -1,0 +1,27 @@
+.podcast {
+  &__left-panel {
+    width: 300px;
+    height: 100%;
+  }
+
+  &__info-box {
+    @extend %box-shadow;
+    width: 250px;
+    padding: 10px;
+  }
+
+  &__image {
+    width: 160px;
+    margin: 15px 35px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  &__author {
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+}
