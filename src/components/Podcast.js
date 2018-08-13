@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { withRouter } from 'react-router'
 import { Route,  Switch } from 'react-router-dom'
 import { GetPodcastDetails } from '../helpers/PodcastInfo.helper'
-import { PodcastList, PodcastInfoBox, PodcastDetails } from './'
+import { PodcastList, PodcastInfoBox, Episode } from './'
 
 class Podcast extends React.Component{
   constructor(props){
@@ -26,7 +26,7 @@ class Podcast extends React.Component{
   }
 
   render(){
-    const { podcastData } = this.state;
+    const { podcastData } = this.state
     return (
       <div className="podcast__container">
       {podcastData &&
@@ -43,7 +43,11 @@ class Podcast extends React.Component{
                   list={podcastData.feed.items}
                 />
               </Route>
-              <Route path="/podcast/:podcastId/episode/:episodeId" component={PodcastDetails}/>
+              <Route path="/podcast/:podcastId/episode/:episodeId">
+                <Episode
+                  list={podcastData.feed.items}
+                />
+              </Route>
             </Switch>
         </div>
         </Fragment>

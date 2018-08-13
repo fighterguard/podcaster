@@ -1,7 +1,11 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 
-const PodcastInfoBox = ({ podcastData }) => (
-  <div className="podcast__info-box">
+const PodcastInfoBox = ({ podcastData, match, history }) => (
+  <div
+    className="podcast__info-box"
+    onClick={() => {history.push(`/podcast/${match.params.podcastId}`)}}
+  >
     <img
       src={podcastData.attributes.artworkUrl600}
       className="podcast__image"
@@ -24,4 +28,4 @@ const PodcastInfoBox = ({ podcastData }) => (
   </div>
 )
 
-export default PodcastInfoBox
+export default withRouter(PodcastInfoBox)

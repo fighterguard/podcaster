@@ -30,6 +30,7 @@
     height: 35px;
     padding-top: 5px;
     border-bottom: 1px solid $light-grey;
+    cursor: pointer;
 
     & > .podcast-list__first-cell {
       color: $brand-color;

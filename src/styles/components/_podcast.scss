@@ -18,6 +18,7 @@
     @extend %box-shadow;
     width: 250px;
     padding: 10px;
+    cursor: pointer;
   }
 
   &__image {

@@ -1,7 +1,8 @@
 import React from 'react'
 import moment from 'moment'
+import { withRouter } from 'react-router'
 
-const PodcastList = ({ list }) => (
+const PodcastList = ({ list, history, match }) => (
   <div className="podcast-list">
     <div className="podcast-list__title-box">
      {`Episodes: ${list.length}`}
@@ -18,9 +19,13 @@ const PodcastList = ({ list }) => (
           Duration
         </div>
       </div>
-      {list.map(item => {
+      {list.map((item, index) => {
         return (  
-        <div className="podcast-list__item-row" key={item.guid}>
+        <div
+          className="podcast-list__item-row"
+          key={index}
+          onClick={() => {history.push(`/podcast/${match.params.podcastId}/episode/${index}`)}}
+        >
           <div className="podcast-list__first-cell">
             {item.title}
           </div>
@@ -37,4 +42,4 @@ const PodcastList = ({ list }) => (
   </div>
 )
 
-export default PodcastList
+export default withRouter(PodcastList)
